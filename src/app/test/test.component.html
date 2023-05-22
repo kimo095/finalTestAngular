@@ -19,13 +19,25 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" routerLink="/home" href="#">Home</a>
-    <a class="navbar-brand" routerLink="/test" href="#">Test samples</a>
-    <a class="navbar-brand" routerLink="/contact" href="#">Contact</a>
-  </nav>
-
-
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <h2 class="text-center mb-4">Final test questions</h2>
+        <div *ngFor="let faq of faqs" class="card mb-3">
+          <div class="card-header">
+            <h5 class="mb-0">
+              <button class="btn btn-link" (click)="faq.expanded = !faq.expanded">
+                {{ faq.question }}
+              </button>
+            </h5>
+          </div>
+          <div class="card-body" *ngIf="faq.expanded">
+            {{ faq.answer }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Add the footer section -->
   <footer class="footer bg-dark text-white">
@@ -42,4 +54,4 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-<router-outlet></router-outlet>
+
